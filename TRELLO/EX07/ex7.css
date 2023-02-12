@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin:20px;
+}
+
+ol, ul{
+    list-style: none;
+}
+
+.lista{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: space-around;
+}
+
+.itemLista{
+    /* Organização no display */
+    display:inline;
+    /* flex direction é referente a posicao do nome(itemLista) */
+    flex-direction:column;
+    gap:10px;
+    border:1px solid #cecbcb;
+    border-radius: 5px;
+    align-items: center;
+    text-align: center;
+}
+
+.rodape{
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    height: 40px;
+}
+
+h1{
+    text-align: center;
+}
