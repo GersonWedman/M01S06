@@ -1,5 +1,5 @@
 //obter usuários
-const obterUsuarios = async (qtd = 4) => {
+const obterUsuarios = async (qtd = 10) => {
   const url = `https://randomuser.me/api/?results=${qtd}`;
   try {
     const response = await fetch(url);
@@ -13,35 +13,39 @@ const obterUsuarios = async (qtd = 4) => {
 
 window.addEventListener('load', async () => {
   //obtem lista da api
-  const data = await obterUsuarios(10);
-  //obtem ul do html p/ renderizar os itens
+  //transforma promise em array
+  const data = await obterUsuarios();
+
+  //obtem ul(lista) do html p inserir os itens
   const lista = document.getElementById('lista');
-  //percorre dados retornados da API
+  console.log(data);
+
+  //percorre item por item da API.
   data.results.forEach((usuario) => {
-    //cria os elementos para exibir no html
     const item = document.createElement('li');
     const nome = document.createElement('h5');
     const email = document.createElement('p');
     const endereco = document.createElement('p');
     const imagem = document.createElement('img');
-    //desestrutura o objeto criando variáveis
+
+    //desestrutura o objeto recebido, criando varios itens a partir de um.
     const { street, city, state, country } = usuario.location;
     const { title, first, last } = usuario.name;
 
-    //adiciona informações nos itens criados
+    //organiza informações nos itens criados para "cada variável".
     nome.innerText = `${title} ${first} ${last}`;
     email.innerText = usuario.email;
     endereco.innerText = `${street.name} ${street.number} ${city} ${state} ${country}`;
     imagem.src = usuario.picture.large;
-    imagem.alt = 'imagem do usuario';
+    imagem.alt = 'Imagem do usuário';
 
-    //adiciona itens dentro da li
+    //adiciona as variáveis ao item.
     item.appendChild(nome);
+    item.appendChild(imagem);
     item.appendChild(email);
     item.appendChild(endereco);
-    item.appendChild(imagem);
 
-    //adiciona li dentro da ul
+    //adiciona o item à lista.
     lista.appendChild(item);
   });
 });

@@ -9,5 +9,27 @@ ul{
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
+    justify-content: left;
+}
+
+li{
+    text-align: center;
+    background-color: gainsboro;
+    border-radius: 10px;
     justify-content: space-between;
+    padding: 10px;
+    font-size: 15px;
+}
+
+h5{
+    font-size:20px;
+}
+
+p{
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+h1{
+    text-align: center;
 }
